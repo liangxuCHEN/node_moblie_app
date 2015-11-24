@@ -1,0 +1,205 @@
+<% include header.ejs %>
+<div class="container">
+<form name="update_line" action = <%= '/lines/' + item.line_id%> method="post" class="form-horizontal">
+<fieldset>
+      <div id="legend" class="">
+        <legend class="">更新线路</legend>
+      </div>
+    
+    <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">路线名称</label>
+          <div class="controls">
+            <input name="line_id" value=<%=item.line_id%> type="hidden">
+            <input type="text" placeholder="一日游" class="input-xlarge" name="name_cn" value=<%=item.name_cn%>>
+            <p class="help-block">路线名称</p>
+          </div>
+
+           <label class="control-label" for="input01">目的地</label>
+          <div class="controls">
+            <input type="text" name="destination" value=<%=item.destination%>>
+             <p class="help-block">可以填写多个，用逗号隔开,provence paris Prague  nice tour paybas italy germany switzerland czech</p>
+          </div>
+        </div>
+
+    <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">网址</label>
+          <div class="controls">
+            <input type="text" placeholder="http://europely.com" class="input-xlarge" name="site" value=<%=item.site%>>
+            <p class="help-block">网址</p>
+          </div>
+        </div>
+
+<div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">价钱</label>
+          <div class="controls">
+            <input type="text" placeholder="700" class="input-xlarge" name="price" value=<%=item.price%>>
+          </div>
+        </div>
+
+  <div class="control-group">
+          <label class="control-label">天数: <%=item.day%></label>
+
+          <!-- Multiple Checkboxes -->
+          <div class="controls">
+      <!-- Inline Checkboxes -->
+      <label class="checkbox-inline">
+        <input type="radio" value="1" name="day">
+        1
+      </label>
+      <label class="checkbox-inline">
+        <input type="radio" value="2" name="day">
+        2
+      </label>
+      <label class="checkbox-inline">
+        <input type="radio" value="3" name="day">
+        3
+      </label>
+      <label class="checkbox-inline">
+        <input type="radio" value="4" name="day">
+        4
+      </label>
+      <label class="checkbox-inline">
+        <input type="radio" value="5" name="day">
+        5
+      </label>
+      <label class="checkbox-inline">
+        <input type="radio" value="6" name="day">
+        6
+      </label>
+      <label class="checkbox-inline">
+        <input type="radio" value="7" name="day">
+        7
+      </label>
+      <label class="checkbox-inline">
+        <input type="radio" value="8" name="day">
+        8
+      </label>
+      <label class="checkbox-inline">
+        <input type="radio" value="9" name="day">
+        9
+      </label>
+      <label class="checkbox-inline">
+        <input type="radio" value="10" name="day">
+        10
+      </label>
+      </label>
+      <label class="checkbox-inline">
+        <input type="radio" value="11" name="day">
+        10+
+      </label>
+  </div>
+</div>
+
+<div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">国家</label>
+          <div class="controls">
+            <input type="text" placeholder="法国" class="input-xlarge" name="country" value=<%=item.country%> >
+            <p class="help-block"></p>
+          </div>
+        </div>
+
+    <div class="control-group">
+
+              <!-- Text input-->
+              <label class="control-label" for="input01">Short-name</label>
+              <div class="controls">
+                <input type="text" placeholder="薰衣草田一日游" class="input-xlarge" name="short_name" value=<%=item.short_name%> >
+                <p class="help-block"></p>
+              </div>
+            </div>
+    
+    <div class="control-group">
+              <!-- Text input-->
+              <label class="control-label" for="input01">图片URL</label>
+              <div class="controls">
+                <input type="text" placeholder="" class="input-xlarge" name="pic_url" value=<%=item.pic_url%> >
+                <p class="help-block"></p>
+              </div>
+            </div>
+
+    <div class="control-group">
+
+                      <!-- Select Basic -->
+                      <label class="control-label">角标: <img src=<%=item.icon_url%> /> </label>
+                      <div class="controls">
+                        <select class="input-xlarge" name="icon_url">
+                    <option value="http://europely.com/wp-content/uploads/2015/10/icon-0.jpg">经典</option>
+                    <option value="http://europely.com/wp-content/uploads/2015/10/icon-1.jpg">热门</option>
+                    <option value="http://europely.com/wp-content/uploads/2015/10/icon-2.jpg">当季</option>
+                    <option value="http://europely.com/wp-content/uploads/2015/10/icon-3.jpg">特色</option>
+                    <option value="http://europely.com/wp-content/uploads/2015/10/icon-4.jpg">优惠</option>
+                         </select>
+                      </div>
+
+   
+    <div class="control-group">
+          <!-- Select Basic -->
+        <label class="control-label">收费模式: <%=item.model%></label>
+                  <div class="controls">
+                    <select class="input-xlarge" name="model">
+                <option>包车起价</option>
+                <option>起价</option>
+                <option>预约费</option>
+                <option>门票</option>
+                      </select>
+                  </div>
+      </div>
+
+      <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">城市</label>
+          <div class="controls">
+            <input type="text" placeholder="巴黎" class="input-xlarge" name="city" value=<%=item.city%>>
+            <p class="help-block"></p>
+          </div>
+        </div>
+
+<div class="control-group">
+          <label class="control-label">可用否 </label>
+          <div class="controls">
+              <%if (item.active) {%>
+               <!-- Multiple Radios -->
+                <label class="radio">
+                  <input type="radio" value="1" name="active" checked="checked">
+                    可用
+                  </label>
+                  <label class="radio">
+                    <input type="radio" value="0" name="active">
+                    不可用
+                  </label>
+             
+             <% } else {%>
+                <!-- Multiple Radios -->
+                 <label class="radio">
+                   <input type="radio" value="1" name="active" >
+                     可用
+                   </label>
+                   <label class="radio">
+                     <input type="radio" value="0" name="active" checked="checked">
+                     不可用
+                   </label>             
+             <% }%>
+          </div>
+ </div>
+
+    <div class="control-group">
+          <!-- Button -->
+          <div class="controls">
+            <button class="btn btn-success">Button</button>
+          </div>
+        </div>
+
+    </fieldset>
+</form>
+</div>
+<% include footer.ejs %>
+

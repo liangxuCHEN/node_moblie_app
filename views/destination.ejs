@@ -1,0 +1,144 @@
+<% include book_header.ejs %>
+<div class="container">
+<form name="trip_info" action = '/show_trip' method="post" class="form-horizontal">
+<ul class="nav nav-tabs" role="tablist" id="feature-tab">
+        <li class="active"><a href="#tab-edu" role="tab" data-toggle="tab">热门</a></li>
+        <li><a href="#tab-project" role="tab" data-toggle="tab">法国</a></li>
+        <li><a href="#tab-experience" role="tab" data-toggle="tab">欧洲他国</a></li>
+    </ul>
+<div class="tab-content">
+        <div class="tab-pane active" id="tab-edu">
+        	<div class="well">
+	  <!-- checkbox 选择你的出行目的地： -->
+	   <label class="checkbox-inline">
+	      <input type="checkbox" name="destination" value="none" checked display = "None">
+	      <input type="checkbox" name="destination" value="provence" checked> 普罗旺斯
+	   </label>
+	   <label class="checkbox-inline">
+	       <input type="checkbox" name="destination" value="paris" > 巴黎
+	   </label>
+	   <label class="checkbox-inline">
+	       <input type="checkbox" name="destination" value="Prague" > 布拉格
+	   </label>
+	   <label class="checkbox-inline">
+	       <input type="checkbox" name="destination" value="nice" > 蔚蓝海岸
+	   </label>
+             </div>
+        </div>
+        <div class="tab-pane" id="tab-project">
+            <div class="well">
+             <label class="checkbox-inline">
+                <input type="checkbox" name="destination" value="provence"> 普罗旺斯
+             </label>
+             <label class="checkbox-inline">
+                 <input type="checkbox" name="destination" value="paris" > 巴黎
+             </label>
+             <label class="checkbox-inline">
+                 <input type="checkbox" name="destination" value="tour" > 图尔
+             </label>
+             <label class="checkbox-inline">
+                 <input type="checkbox" name="destination" value="nice" > 蔚蓝海岸
+             </label>
+              <label class="checkbox-inline">
+                 <input type="checkbox" name="destination" value="bordeaux" > 波尔多
+             </label>
+             </div>
+        </div>
+       <div class="tab-pane" id="tab-experience">
+           <div class="well">
+	   <label class="checkbox-inline">
+	      <input type="checkbox" name="destination" value="paybas" > 荷兰
+	   </label>
+	   <label class="checkbox-inline">
+	       <input type="checkbox" name="destination" value="italy" >意大利
+	   </label>
+	   <label class="checkbox-inline">
+	       <input type="checkbox" name="destination" value="germany" > 德国
+	   </label>
+	   <label class="checkbox-inline">
+	       <input type="checkbox" name="destination" value="switzerland" > 瑞士
+	   </label>
+	   <label class="checkbox-inline">
+	       <input type="checkbox" name="destination" value="czech" > 捷克
+	   </label>
+          </div>
+      </div>
+</div>
+
+   <!-- checkbox 旅行天数 -->
+   <div class="control-group">
+   <label for="name" class="control-label">旅行天数</label>
+   <div>
+  <label class="checkbox-inline">
+      <input type="radio" name="days_trip" value="1" checked> 1
+   </label>
+   <label class="checkbox-inline">
+       <input type="radio" name="days_trip" value="2" > 2 - 5
+   </label>
+   <label class="checkbox-inline">
+       <input type="radio" name="days_trip" value="3" > 5天以上
+   </label>
+   </div>
+   </div>
+<!-- checkbox 旅行人数-->
+<div class="control-group">
+ <label for="name" class="control-label">旅行人数</label>
+  <div>
+   <div class="controls">
+                 成人
+                  <a href="javascript:;" onclick="reduceNumber(this,1);">
+                    <img src="http://europely.com/wp-content/uploads/2015/09/selectleft.png" width="13" height="28">
+                  </a><span> 2 </span>
+                  <a href="javascript:;" onclick="addNumber(this,15);">
+                    <img src="http://europely.com/wp-content/uploads/2015/09/selectright.png" width="13" height="28">
+                  </a>
+            <input type="hidden" value="2" id="num_person" name='num_person'>
+      </div>
+</div>
+   <!--  补充说明你的需求-->
+   <div class="control-group">
+   <label class="control-label">补充说明你的需求</label>
+   <div class="textarea">
+      <textarea name="need" rows=4 COLS=40> 需要的具体要求 </textarea>
+   </div>
+   </div>
+ <!--  提交-->
+   <div class="control-group">
+       
+        <label class="control-label" ></label>
+          <!-- Button -->
+          <div class="controls">
+           <input type="submit" value="提交" class="btn btn-primary btn-large">
+          </div>
+     </div>
+  </div>
+  </form>
+<script type="text/javascript">
+var addNumber = function(o, max) {
+        var _obj = o;
+        var numberMain = _obj.parentNode.getElementsByTagName("span")[0];
+        var input = _obj.parentNode.getElementsByTagName("input")[0];
+        var num = numberMain.innerText;
+        num = num * 1;
+        num += 1;
+        if (num > max) {
+          num = max;
+        }
+        numberMain.innerHTML = num;
+        input.value = num;
+      }
+      var reduceNumber = function(o, min) {
+        var _obj = o;
+        var numberMain = _obj.parentNode.getElementsByTagName("span")[0];
+        var input = _obj.parentNode.getElementsByTagName("input")[0];
+        var num = numberMain.innerText;
+        num = num * 1;
+        num -= 1;
+        if (num < min) {
+          num = min;
+        }
+        numberMain.innerHTML = num;
+        input.value = num;
+      }
+  </script>	
+<% include book_footer.ejs %>

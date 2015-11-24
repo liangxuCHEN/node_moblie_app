@@ -1,0 +1,47 @@
+<% include header.ejs %>
+<div class="container">
+ <form class="form-horizontal" action = '/login' method="post" class="form-horizontal">
+    <fieldset>
+      <div id="legend" class="">
+        <legend class="">登录系统</legend>
+      </div>
+      <%if ( error_info !== 'no') {%>
+        <div class="alert alert-danger" role="alert">
+        <%= error_info%> 
+        </div>
+      <%}%>
+    <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">用户名</label>
+          <div class="controls">
+            <input type="text" placeholder="admin" class="input-xlarge" name="username">
+            <p class="help-block"></p>
+          </div>
+        </div>
+
+    
+
+    <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">密码</label>
+          <div class="controls">
+            <input type="password" placeholder="" class="input-xlarge" name="password">
+            <p class="help-block"></p>
+          </div>
+        </div>
+
+   <div class="control-group">
+
+        <!-- Button -->
+          <div class="controls">
+            <button class="btn btn-success">提交</button>
+          </div>
+         </div>
+
+    </fieldset>
+  </form>
+
+</div>
+<% include footer.ejs %>

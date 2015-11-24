@@ -1,0 +1,32 @@
+<% include book_header.ejs %>
+<div class="container">
+<ol class="breadcrumb">
+  <li><a href="/admin">首页</a></li>
+  <li><a class="active">留言</a></li>
+</ol>
+<% if(comments.num_comments >0) {%>
+<div class="page-header">
+<h4> <%=comments.num_comments%>个留言</h4>
+</div>
+  <div class="jumbotron">
+  <% i = 0 %>
+   <ul class="list-group">
+  <% comments.phone.forEach(function(tel) { %>
+  <% i=i+1%>
+   <li class="list-group-item">
+   <span class="label label-danger"><%= i %></span>
+    电话 : <%= tel%>  | 邮箱 : <%= comments.email[i-1]%> | 提交时间 : <%=comments.created_at[i-1]%> |
+    <% if (comments.is_check[i-1]) {%>
+      <span class="label label-success">已回复</span>
+    <% } else {%>
+      <span class="label label-warning">无回复</span>
+    <% }%>
+    <a href=<%= '/comment/' + comments.comment_id[i-1]%>>回复</a>
+   <div><%= comments.comment_text[i-1]%></div>  
+    </li>
+   <% }) %>
+   </ul>
+  </div>
+ <%} %>
+</div>
+<% include book_footer.ejs %>

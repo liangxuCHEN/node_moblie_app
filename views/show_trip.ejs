@@ -1,0 +1,27 @@
+<% include mobile_header.ejs %>
+<div data-role="content" data-theme="a">
+<div class="container">
+<div class="page-header">
+ <% if (advices.num_lines == 0) { %>
+  <h4> 没有适合的路线 </h4>
+  <%} %>
+<% if (advices.num_lines > 0) { %>
+  <h4>我们为你推荐 <%=advices.num_lines%>个参考行程</h4>
+</div>
+<div class="jumbotron">
+ <% i = 0 %>
+<ul class="list-group">
+ <% advices.urls.forEach(function(url) { %>
+  <% i=i+1%>
+    <li class="list-group-item"><span class="badge"><%= advices.price[i-1]%></span><span class="label label-danger">行程<%= i %></span><a href=<%= url%> target="_blank"><%= advices.name_line[i-1]%></a></li>
+  <% }) %>
+ </ul>
+</div>
+ <%} %>
+<!-- Button --><a href="/help"><button type="button" class="btn btn-primary btn-lg" > 不合要求，更多帮助</button></a>
+
+
+</div>
+</div>
+<% include footer.ejs %>
+

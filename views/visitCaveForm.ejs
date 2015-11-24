@@ -1,0 +1,173 @@
+<% include book_header.ejs %>
+<div data-role="content" data-theme="e">
+
+  <form  action="/visitCave" method="POST">
+     <div data-role="fieldcontain">
+                  <label class="control-label" for="input01" >姓名：</label>
+                 <input type="text" placeholder="" class="input-xlarge" name='clientName' required="true">
+     </div>
+    
+     <div data-role="fieldcontain">
+           <label class="control-label" for="input01">参观日期</label>
+            <input type="date" class="input-xlarge" name='visitDate'>
+     </div>
+     
+     <div data-role="fieldcontain">
+       <label class="control-label" for="input01">参观人数</label>
+       <div class="controls">
+              成人
+               <a href="javascript:;" onclick="reduceNumber(this,1);">
+                 <img src="http://europely.com/wp-content/uploads/2015/09/selectleft.png" width="13" height="28">
+               </a><span> 2 </span>
+               <a href="javascript:;" onclick="addNumber(this,15);">
+                 <img src="http://europely.com/wp-content/uploads/2015/09/selectright.png" width="13" height="28">
+               </a>
+         <input type="hidden" value="2" id="member" name='member'>
+        </div>
+     </div>
+
+      <div class="control-group">
+                <label class="control-label">带儿童</label>
+                <div class="controls">
+            <!-- Multiple Radios -->
+              <input type="radio" value="0" name="has_child" checked="checked">
+              0
+              <input type="radio" value="1" name="has_child">
+              1
+              <input type="radio" value="2" name="has_child">
+              2
+              <input type="radio" value="3个或以上" name="has_child">
+              3+
+        </div>
+
+    <div class="control-group">
+
+          <!-- Select Multiple -->
+          <label class="control-label">参观酒庄</label>
+          <div class="controls">
+            <select class="input-xlarge" multiple="multiple" name='caveName'>
+      <option>Chateau Lafite Roths child拉斐庄</option>
+      <option>Chateau Latour拉图庄</option>
+      <option>Chateau Haut-Brion奥比昂庄</option>
+      <option>Chateau Margaux玛歌庄</option>
+      <option>Chateau Mouton Rothschild木桐庄</option>
+      <option>Chateau Ch Blanc白马庄</option>
+      <option>Chateau Ausone奥松庄</option>
+      <option>Petrus柏翠庄</option>
+      <option>波尔多一级酒庄</option>
+      <option>波尔多二级酒庄</option>
+      <option>波尔多列级酒庄</option>
+      <option>勃艮第葡萄园</option></select>
+          </div>
+          <p class="help-block">*建议提前一周至四周预约参观</p>
+        </div>
+
+
+    <div class="control-group">
+          <label class="control-label"></label>
+          <!-- Button -->
+          <div class="controls">
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                马上预约
+          </button>
+        </div>
+    </div>
+  </fieldset>
+    
+<!---second form -->
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="well">
+             <fieldset>
+               <div id="legend" class="">
+                 <legend class="">请您留下联系方式</legend>
+               </div>
+               <div class="control-group">
+
+                     <!-- Text input-->
+                     <label class="control-label" for="input01">联系电话:</label>
+                     <div class="controls">
+                       <input type="text" placeholder="" class="input-xlarge" name='phone' required="true">
+                       <p class="help-block"></p>
+                     </div>
+                   </div>
+
+             <div class="control-group">
+                   <!-- Text input-->
+
+                   <label class="control-label" for="input01" >邮箱:</label>
+                   <div class="controls">
+                     <input type="email" placeholder="example@email.com" class="input-xlarge" name="email" required="true">
+                     <p class="help-block"></p>
+                   </div>
+                 </div>
+
+             <div class="control-group">
+
+                   <!-- Textarea -->
+                   <label class="control-label">留言(其他联系的方式) :</label>
+                   <div class="controls">
+                     <div class="textarea">
+                           <textarea name="commentText">如:qq,微信等 </textarea>
+                     </div>
+                     <p class="help-block"></p>
+                   </div>
+                 </div>
+
+                 <div class="control-group">
+                   <!-- Button -->
+                   <div class="controls">
+                     <button class="btn btn-primary">提交</button>
+                   </div>
+                   </div>
+
+             </fieldset>
+        </div>
+     </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+<!---second form -->
+
+  </form>
+
+<!--End form--> 
+</div>
+<script type="text/javascript">
+var addNumber = function(o, max) {
+        var _obj = o;
+        var numberMain = _obj.parentNode.getElementsByTagName("span")[0];
+        var input = _obj.parentNode.getElementsByTagName("input")[0];
+        var num = numberMain.innerText;
+        num = num * 1;
+        num += 1;
+        if (num > max) {
+          num = max;
+        }
+        numberMain.innerHTML = num;
+        input.value = num;
+      }
+      var reduceNumber = function(o, min) {
+        var _obj = o;
+        var numberMain = _obj.parentNode.getElementsByTagName("span")[0];
+        var input = _obj.parentNode.getElementsByTagName("input")[0];
+        var num = numberMain.innerText;
+        num = num * 1;
+        num -= 1;
+        if (num < min) {
+          num = min;
+        }
+        numberMain.innerHTML = num;
+        input.value = num;
+      }
+  </script>
+<% include book_footer.ejs %>

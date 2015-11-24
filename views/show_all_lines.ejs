@@ -1,0 +1,32 @@
+<% include book_header.ejs %>
+<div class="container">
+<ol class="breadcrumb">
+  <li><a href="/admin">首页</a></li>
+  <li><a class="active">路线</a></li>
+</ol>
+<div class="page-header">
+<% len= advices.length %>
+ <% if (len > 0) { %>
+  <h4> <%=len%>个参考行程</h4>
+</div>
+<div class="jumbotron">
+<ul class="list-group">
+ <% for (var i=0; i<len; i++ ) { item = advices[i]%>
+    <li class="list-group-item"><span class="badge">
+      <%= item.price%></span><span class="label label-danger">行程<%= i+1 %></span>
+      <a href=<%= item.site%> target="_blank"><%= item.name_cn%></a> 
+       <span class="label label-info"><%=item.day%>天</span>
+      <%if (item.active) {%>
+        <span class="label label-success">有用</span>
+      <% } else {%>
+        <span class="label label-warning">无用</span>
+      <% }%>
+      <%if (power == 0) {%> <a href=<%= '/lines/' + item.line_id%>>编辑</a> </li> <% }%>
+  <% } %>
+ </ul>
+</div>
+ <%} %>
+
+</div>
+<% include book_footer.ejs %>
+

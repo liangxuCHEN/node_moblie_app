@@ -1,0 +1,67 @@
+<% include mobile_header.ejs %>
+<div data-role="content" data-theme="a">
+    <div class="container">
+      <div class="modal-body">
+         <ul class="list-group">
+           <li class="list-group-item">
+               QQ : 1372482437 <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1372482437&amp;site=qq&amp;menu=yes" target="_blank" rel="nofollow"><img title="给环欧洲旅游发送QQ" alt="环欧洲旅游QQ" src="http://wpa.qq.com/pa?p=2:82708210:41" border="0"></a>
+           </li>
+        <li class="list-group-item"><a href="tel:4008450085"><button class="btn btn-info">拨打 40084-50085</button></a></li>
+        <li class="list-group-item">邮件 reservation@europely.com </li>
+        <li class="list-group-item"><a href="/book"><button class="btn btn-info">重新填写表格</button></a></li>
+        <li class="list-group-item"><a href="/" ><button class="btn btn-success">网站首页</button></a></li>
+        <li class="list-group-item">
+          <form class="form-horizontal" action="/addComment" method="post" name="comment_info">
+             <fieldset>
+               <div id="legend" class="">
+                 <legend class="">请给我们留言，48小时内回复</legend>
+               </div>
+             <div class="control-group">
+
+                   <!-- Text input-->
+                   <label class="control-label" for="input01">邮箱</label>
+                   <div class="controls">
+                     <input type="email" placeholder="example@email.com" class="input-xlarge" name="email">
+                     <p class="help-block"></p>
+                   </div>
+                 </div>
+
+             <div class="control-group">
+
+                   <!-- Text input-->
+                   <label class="control-label" for="input01">手机</label>
+                   <div class="controls">
+                     <input type="text" placeholder="" class="input-xlarge" name="phone"  required="required">
+                     <p class="help-block"></p>
+                   </div>
+                 </div>
+
+             <div class="control-group">
+
+                   <!-- Textarea -->
+                   <label class="control-label">留言</label>
+                   <div class="controls">
+                     <div class="textarea">
+                           <textarea name="comment_text"></textarea>
+                     </div>
+                   </div>
+                 </div>
+
+             <div class="control-group">
+                   <label class="control-label"></label>
+
+                   <!-- Button -->
+                   <div class="controls">
+                     <button class="btn btn-primary">提交</button>
+                   </div>
+                 </div>
+
+             </fieldset>
+           </form>
+
+        </li>
+       </ul>
+      </div>
+     </div>
+  </div>
+<% include footer.ejs %>

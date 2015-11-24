@@ -1,0 +1,21 @@
+<% include book_header.ejs %>
+<div class="container">
+  
+  <div class="page-header">
+     <% if (is_success) { %>
+        <h4>我们已经收到您的预约信息，行程顾问会尽快回复您</h4>
+  </div>
+  <div class="well">
+   <a href='/'>返回首页</a>
+  </div>
+   <%} else {%>
+    <h4>我非常抱歉，您的预约没有成功，请直接联系客服: 40084-50085 </h4>
+  </div>
+  <div class="well">
+   <a href='/visitCave'>再填一次</a>
+  </div>
+   <%}%>
+ 
+  
+</div>
+<% include book_footer.ejs %>
